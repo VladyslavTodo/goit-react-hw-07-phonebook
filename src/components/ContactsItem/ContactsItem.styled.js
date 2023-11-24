@@ -16,3 +16,9 @@ export const Button = styled.button`
     background-color: #60bc9d;
   }
 `;
+
+export const ErrorMessage = styled.p`
+  font-weight: 200;
+  font-size: 40px;
+  text-align: center;
+`;

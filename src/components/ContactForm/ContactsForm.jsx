@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { createContact } from 'redux/contactsReducer';
-import { getContacts } from 'redux/selectors';
-
 import Notiflix from 'notiflix';
 import { nanoid } from '@reduxjs/toolkit';
+
+import { selectContacts } from 'redux/selectors';
+import { addContact } from 'redux/operations';
 
 import { Label, Button, Form } from './ContactsForm.styled';
 
 const ContacsForm = () => {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const [name, setName] = useState('');
@@ -37,10 +37,10 @@ const ContacsForm = () => {
     const newContact = {
       id: nanoid(),
       name: name,
-      number: number,
+      phone: number,
     };
 
-    dispatch(createContact(newContact));
+    dispatch(addContact(newContact));
     setName('');
     setNumber('');
   };
